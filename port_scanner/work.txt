@@ -1,0 +1,20 @@
+ssh 172.20.0.20 -p 2222
+╔═══════════════════════════════════════════════════════╗
+║                                                       ║
+║          🔒 SECRET SSH SERVER 🔒                      ║
+║                                                       ║
+║  You have discovered a hidden service!                ║
+║  Congratulations on your reconnaissance skills.       ║
+║                                                       ║
+║  Service: SSH Server                                  ║
+║  Port: 2222                                           ║
+║                                                       ║
+║  Credentials:                                         ║
+║  Username: sshuser                                    ║
+║  Password: SecurePass2024!                            ║
+║                                                       ║
+╚═══════════════════════════════════════════════════════╝
+
+ssh sshuser@172.20.0.20 -p 2222
+
+cat ~/secrets/flag2.txt
