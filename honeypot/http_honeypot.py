@@ -19,7 +19,8 @@ log = create_logger()
 def get_sid():
     sid = request.cookies.get("hp_sid", "")
     if not sid:
-        STATE["ip_counts"][request.remote_addr] = STATE["ip_counts"].get(request.remote_addr, 0) + 1
+        STATE["ip_counts"][request.remote_addr] = STATE["ip_counts"].get(
+            request.remote_addr, 0) + 1
         sid = f"{request.remote_addr}:{request.environ.get('REMOTE_PORT', 0)}:{STATE['ip_counts'][request.remote_addr]}"
         STATE["sessions"][sid] = {"ip": request.remote_addr}
     return sid
@@ -31,7 +32,8 @@ def log_request():
     if request.content_type and "application/x-www-form-urlencoded" in request.content_type:
         body_parsed = {k: v for k, v in request.form.items()}
     elif request.files:
-        body_parsed = {"filenames": [f.filename for f in request.files.values()]}
+        body_parsed = {"filenames": [
+            f.filename for f in request.files.values()]}
     elif request.data:
         body_parsed = {"raw": request.data.decode("utf-8", "replace")}
 
@@ -144,7 +146,12 @@ def robots():
 
 @app.route("/favicon.ico")
 def favicon():
-    return make_response("", 204)
+    # return some random image xd
+    return send_from_directory(
+        TEMPLATE_DIR,
+        "favicon.ico",
+        mimetype="image/vnd.microsoft.icon",
+    )
 
 
 @app.route("/api/status")
