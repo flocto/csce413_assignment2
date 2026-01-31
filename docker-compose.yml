@@ -94,6 +94,7 @@ services:
       - 1.1.1.1
     ports:
       - "2222:22"
+      - "8080:80"
     networks:
       vulnerable_network:
         ipv4_address: 172.20.0.30
@@ -111,9 +112,28 @@ services:
       - 1.1.1.1
     cap_add:
       - NET_ADMIN
+    sysctls:
+      - net.ipv4.ip_forward=1
     networks:
       vulnerable_network:
         ipv4_address: 172.20.0.40
+
+  # i love using wsl!1!1!11!1   
+  shell:
+    image: nicolaka/netshoot
+    command: sleep infinity
+    privileged: true
+    # pid: "host"Wai
+    # network_mode: "host"
+    working_dir: /work
+    volumes:
+      - ${PWD}:/work
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      vulnerable_network:
+        ipv4_address: 172.20.0.250
+    tty: true
+    stdin_open: true
 
 networks:
   vulnerable_network:
