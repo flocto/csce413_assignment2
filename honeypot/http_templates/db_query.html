@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Database Console</title>
+    </head>
+    <body>
+        <h1>DB Query</h1>
+        <form method="POST" action="/db">
+            <textarea
+                name="query"
+                rows="8"
+                cols="60"
+                placeholder="SELECT * FROM users;"
+            ></textarea
+            ><br /><button type="submit">Run</button>
+        </form>
+        <p>Hint: Read-only mode enabled.</p>
+    </body>
+</html>
