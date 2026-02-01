@@ -1,0 +1,5 @@
+file 'OMFG - Hello.mp3'
+file 'OMFG - I Love You.mp3'
+file 'OMFG - Ice Cream.mp3'
+file 'OMFG - Jelly.mp3'
+file 'OMFG - Yeah.mp3'
