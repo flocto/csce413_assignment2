@@ -123,7 +123,7 @@ services:
     image: nicolaka/netshoot
     command: sleep infinity
     privileged: true
-    # pid: "host"Wai
+    # pid: "host"
     # network_mode: "host"
     working_dir: /work
     volumes:
